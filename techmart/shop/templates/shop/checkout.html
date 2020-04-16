@@ -1,0 +1,99 @@
+      {% extends 'shop/basic.html'%}
+
+                {% block title %} TechZone {% endblock%}
+                {% block css %}
+                	.main_body{
+                		width: 70%;
+                		margin: 0 auto;
+                }
+                {% endblock %}
+
+
+                {% block body%}
+<br>
+<div class="container">
+
+	<div class="main_body">
+        <h3>Step 1 - TechZone Express Cart - Review your items in cart</h2>
+        <br>
+        
+        <ul class="list-group" id="check_items">
+		  
+		</ul>
+		<br>
+		<div class="alert alert-success" id="total_prize" role="alert">
+		  Please insert some items in your cart....
+		</div>
+		<br>
+		 <h3>Step 2 - TechZone Express Cart - Review your items in cart</h2>
+		<br>
+		<form method="post" action="/shop/check_out/">  {% csrf_token %} 
+		  <div class="form-row">
+		    <div class="form-group col-md-6">
+		      <label for="name">Name</label>
+		      <input type="text" class="form-control" name="name">
+		    </div>
+		    <div class="form-group col-md-6">
+		      <label for="email">Email</label>
+		      <input type="email" class="form-control" name="email" required>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="address">Address</label>
+		    <input type="text" class="form-control" name="address" placeholder="1234 Main St" required>
+		  </div>
+		  <div class="form-row">
+		    <div class="form-group col-md-6">
+		      <label for="city">City</label>
+		      <input type="text" class="form-control" name="city" required>
+		    </div>
+		    <div class="form-group col-md-4">
+		      <label for="state">State</label>
+		      <input type="text" class="form-control" name="state" required>
+		    </div>
+		    <div class="form-group col-md-2">
+		      <label for="zip">Zip</label>
+		      <input type="number" class="form-control" name="zip" required>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		  </div>
+		  <div class="form-group">
+		    <label for="number">Cnic</label>
+		    <input type="number" class="form-control" name="cnic" placeholder="*****-*******-*" required>
+		  </div>
+		  <div class="form-group">
+		    <label for="number">Phone number</label>
+		    <input type="number" class="form-control" name="number" placeholder="03XXXXXXXXX" required>
+		  </div>
+		  <button type="submit" class="btn btn-primary">Order....</button>
+		</form>
+		<br>
+		<br>
+    </div>
+</div>
+                 {% endblock%}
+
+
+                    {% block js %}
+<script>
+	if (localStorage.getItem('cart') != undefined ){
+		
+		cart_val = JSON.parse(localStorage.getItem('cart'));
+		var prize = 0;
+		var cart_data = "";
+		for ( var item in cart_val) {
+			if (cart_val[item][0] != 0) {
+				cart_data = cart_data + "<li class='list-group-item d-flex justify-content-between align-items-center'><strong>"+cart_val[item][1]+"</strong><span class='badge badge-success badge-pill'>"+cart_val[item][0]+"</span></li>";
+
+				prize = prize + (cart_val[item][2] * cart_val[item][0]);
+			}
+		}
+		document.getElementById('check_items').innerHTML = cart_data;
+		document.getElementById('total_prize').innerHTML = "<strong>Total Prize </strong><span class='badge badge-success badge-pill' style='float: right;'>Rs:&nbsp<strong>"+prize+"</strong></span>";
+	}
+
+</script>
+
+
+                    {% endblock %}

@@ -1,0 +1,84 @@
+      {% extends 'shop/basic.html'%}
+
+                {% block title %} TechZone {% endblock%}
+
+                {% block css %}
+                .main_body{
+                		width: 70%;
+                		margin: 0 auto;
+                }
+
+                {% endblock %}
+
+                {% block body%}
+
+    
+    <br>
+<div class="container">
+
+	<div class="main_body">
+        <h3>Track You order Here</h2>
+        <br>
+        <form method="post" id="trackerform">  {% csrf_token %} 
+		  <div class="form-row">
+		    <div class="form-group col-md-6">
+		      <label for="id">Id</label>
+		      <input type="text" class="form-control" name="id">
+		    </div>
+		    <div class="form-group col-md-6">
+		      <label for="email">Email</label>
+		      <input type="email" class="form-control" name="email" required>
+		    </div>
+		  </div>
+		  <button type="submit" class="btn btn-primary">Track</button>
+		</form>
+        
+        <br>
+		 <h3>Items contains in your order</h2>
+		<!-- <br> -->
+       	<ul class="list-group" id="order_items">
+		  <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
+		    Cras justo odio
+		    <span class="badge badge-primary badge-pill">14</span>
+		  </li> -->
+		  		<h6> See here order items</h6>
+ 		</ul>
+		<br>
+		<br>
+    </div>
+</div>
+
+
+                 {% endblock%}
+
+
+                    {% block js %}
+<script>
+		$("#trackerform").submit(function(event){
+			// console.log("Pakistan Zindabad");
+			$('#order_items').empty();
+			var formData = {
+				'id': $('input[name=id]').val(),
+				'email': $('input[name=email]').val(),
+				'csrfmiddlewaretoken': $('csrfmiddlewaretoken').val(),
+			};
+
+			$.ajax({
+				type: 'POST',
+				url: '/shop/tracker/',
+				data: formData,
+				encode: true
+			})
+
+			.done(function(data){
+				console.log(data);
+			});
+
+			event.preventDefault();
+
+		});
+
+</script>
+
+
+                    {% endblock %}

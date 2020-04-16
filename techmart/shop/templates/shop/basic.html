@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    {% load static %}
+    <title>{% block title%} {% endblock%}</title>
+     <!-- Favicon  -->
+    <link rel="shortcut icon" href="/media/shop/logo/header_teczone.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">-->
+    <!-- <link rel="stylesheet" href="{% static '/shop/css/bootstrap.min.css' %}"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static '/shop/css/style.css' %}">
+    <link rel="stylesheet" href="{% static '/shop/css/animate.css' %}" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+    <script src="{% static '/shop/js/modernizr-3.5.0.min.js' %}"></script>
+    <style type="text/css">
+     span.carousel-control-next-icon {
+        margin-left: 90%;
+        
+     }
+     span.carousel-control-prev-icon {
+        margin-right: 90%;
+     }      
+
+     {% block css%} {% endblock %}
+    </style>
+</head>
+<body>
+
+<div class="row top-bar">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-5 d-sm-block d-none" style="font-size: 13px">
+        <i class="fa fa-envelope"></i> Support@example.com &nbsp;
+        <i class="fa fa-phone"></i> 12312456342 &nbsp;
+        <!-- <i class="fa fa-comments"></i> Live chat -->
+    </div>
+    <div class="col-sm-2 col-6 text-center">
+        <i class="fa fa-facebook-square"></i>
+        <i class="fa fa-twitter-square"></i>
+        <i class="fa fa-instagram"></i>
+        <i class="fa fa-google-plus-square"></i>
+        <i class="fa fa-linkedin"></i>
+    </div>
+    <div class="col-sm-3 col-6 login">
+        <a href="#!" class="text-white">Login</a> &nbsp; &nbsp;
+        <a href="#!" class="text-white">Sign Up</a>
+    </div>
+</div>
+
+<nav class="navbar navbar-expand-lg nav-bar navbar-light bg-light navbar-fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/shop/"><img height=40px src="/media/shop/logo/techzone_logo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto navi">
+                <li class="nav-item">
+                    <a class="nav-link nav-btn active" href="/shop/">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-btn" href="/shop/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-btn" href="/shop/tracker">Tracking</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-btn" href="/shop/contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <!-- <a class="nav-link nav-btn active" title="view your shopping cart" href="/shop/contact">Cart(<span id="cart_value" style="color: #24b540;"> 0 </span>)</a> -->
+
+                    <a tabindex="0" id="popcart" class="nav-link nav-btn active popc" data-html="true" role="button"  data-placement="bottom" data-toggle="popover" data-trigger="focus" title="Your Cart Items">Cart(<span id="cart_value" style="color: #24b540;"> 0 </span>)</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+                            
+                            {% block body %} {% endblock %}
+
+
+
+
+<div class="dark">
+    <div class="container animate-box" id="fh5co-footer">
+        <div class="row">
+            <div class="col-sm-4">
+                <div><a class="nsavbar-brand" href="#"><img height=60px src="/media/shop/logo/techzone_logo.png"></a></div>
+                <br>
+                <div class="text-white">Get amazing results working with the best programmers, designers, writers and
+                    other top online pros. You can hire us with confidence. Get amazing results working with the best
+                    programmers
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="icons">Explore Our Pages</h3></div>
+                <br>
+                <table width="100%">
+                    <tr>
+                        <td><a class="text-white" href="#!">Home</a></td>
+                        <td><a class="text-white" href="#fh5co-pricing">Hosting</a></td>
+                    </tr>
+                    <tr>
+                        <td><a class="text-white" href="#!">About us</a></td>
+                        <td><a class="text-white" href="#!">Faq</a></td>
+                    </tr>
+                    <tr>
+                        <td><a class="text-white" href="#!">Services</a></td>
+                        <td><a class="text-white" href="#!">Cart</a></td>
+                    </tr>
+                    <tr>
+                        <td><a class="text-white" href="#!">Shop</a></td>
+                        <td><a class="text-white" href="#!">Checkout</a></td>
+                    </tr>
+                    <tr>
+                        <td><a class="text-white" href="#!">Blog</a></td>
+                        <td><a class="text-white" href="#fh5co-contact">Contact</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-sm-4">
+                <div class="icons">Get in Touch</h3></div>
+                <br>
+                <div>
+                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                    <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                    <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="darker">
+    <div class="container" id="fh5co-legal">
+        <div class="row">
+            <div class="col-sm-8 text-white mtext-center">
+                &copy; 2018 <a class="text-gr" href="#">Tech <span class="navbar-brand2">Zone</span></a>. Design
+                by <a href="https://freehtml5.co" target="_blank">FreeHTML5</a>.
+            </div>
+            <div class="col-sm-4 text-white mtext-center">
+                <table>
+                    <tr>
+                        <td><a class="text-white" href="#!">Legal</a></td>
+                        <td><a class="text-white" href="#!">Sitemap</a></td>
+                        <td><a class="text-white" href="#!">Privacy Policy</a></td>
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script> -->
+<!-- <script src="{% static 'shop/js/jquery.min.js' %}"></script> -->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>-->
+<!-- <script src="{% static 'shop/js/bootstrap.min.js' %}"></script> -->
+<!--<script src="https://use.fontawesome.com/8e45396e2e.js"></script>-->
+ <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+ <script src="https://code.jquery.com/jquery-3.4.1.js"
+         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<script src="{% static 'shop/js/fontawesome.js' %}"></script>
+<script src="{% static 'shop/js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'shop/js/animate.js' %}"></script>
+
+    {% block js%}  {% endblock %}
+    
+
+</body>
+</html>
+
+
+
+
